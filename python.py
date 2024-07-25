@@ -6,6 +6,14 @@ class Shape(ABC):
     @abstractmethod
     def area(self):
         pass
+    
+    def __int__(self):
+        # Vrací oblast jako celé číslo
+        return int(self.area())
+    
+    def __str__(self):
+        # Vrací informace o tvaru
+        return f'{self.__class__.__name__} with area: {self.area()}'
 
 # Třída Rectangle (Obdélník)
 class Rectangle(Shape):
@@ -52,4 +60,4 @@ shapes = [
 ]
 
 for shape in shapes:
-    print(f'{shape.__class__.__name__} area: {shape.area()}')
+    print(f'{shape} (as integer area): {int(shape)}')
